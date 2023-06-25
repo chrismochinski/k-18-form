@@ -33,8 +33,15 @@ function EducatorForm() {
     setImageFile(file);
   };
 
-  //whenever an input is focus-visible, console.log the associated label
-  
+  const handleFocus = (e) => {
+    const label = e.target.previousElementSibling;
+    label.classList.add("label-focus");
+  };
+
+  const handleBlur = (e) => {
+    const label = e.target.previousElementSibling;
+    label.classList.remove("label-focus");
+  };
 
   return (
     <div className="app-wrapper">
@@ -43,7 +50,15 @@ function EducatorForm() {
       <form className="form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
-          <input type="text" id="name" className="form-input" value={name} onChange={(e) => setName(e.target.value)} />
+          <input
+            type="text"
+            id="name"
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            className="form-input"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
         <div className="form-group">
           <label htmlFor="instagramHandle">Instagram Handle:</label>
@@ -52,6 +67,8 @@ function EducatorForm() {
             id="instagramHandle"
             className="form-input"
             value={instagramHandle}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             onChange={(e) => setInstagramHandle(e.target.value)}
           />
         </div>
@@ -62,6 +79,8 @@ function EducatorForm() {
             id="yearsInService"
             className="form-input"
             value={yearsInService}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             onChange={(e) => setYearsInService(e.target.value)}
           />
         </div>
@@ -72,16 +91,31 @@ function EducatorForm() {
             id="licensedStates"
             className="form-input"
             value={licensedStates}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             onChange={(e) => setLicensedStates(e.target.value)}
           />
         </div>
         <div className="form-group bio">
           <label htmlFor="bio">Bio:</label>
-          <textarea id="bio" className="form-input" value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
+          <textarea
+            id="bio"
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            className="form-input"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}></textarea>
         </div>
         <div className="form-group">
           <label htmlFor="imageFile">Headshot File:</label>
-          <input type="file" id="imageFile" className="form-input" onChange={handleImageUpload} />
+          <input
+            type="file"
+            id="imageFile"
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            className="form-input"
+            onChange={handleImageUpload}
+          />
         </div>
         <div className="button-container">
           <button type="submit" className="submit-button">

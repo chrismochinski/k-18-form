@@ -39,6 +39,7 @@ body {
       width: clamp(340px, 65vw, 680px);
 
       .form-group {
+        position: relative;
         margin-bottom: 20px;
 
         label {
@@ -47,6 +48,11 @@ body {
           font-size: clamp(1em, 1.75cqi, 1.125em);
           font-family: "inter", sans-serif;
           padding: 4px;
+          transition: margin 225ms ease-in-out, color 100ms ease-in-out;
+          &.label-focus {
+            color: #f6418e;
+            margin-left: 14px;
+          }
         }
 
         textarea,
@@ -70,8 +76,13 @@ body {
           &#imageFile {
             font-size: 0.7em;
           }
-          &:focus-visible {
-            outline: 2px solid #f6418e;
+          &:focus-visible,
+          &:focus {
+            outline: 1.5px solid #f6418e;
+            // & + label {
+            //   color: #f6418e;
+            //   transform: translateX(20px);
+            // }
           }
         }
       }
