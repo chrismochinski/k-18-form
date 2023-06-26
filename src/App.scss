@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+body {
+  background-color: #222;
+
+  .app-wrapper {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-inline: calc(max(6vw, calc(100vw - 1280px) / 2));
+    & * {
+      box-sizing: border-box;
+      line-height: 1.25em;
+    }
+    .title {
+      text-align: center;
+      font-size: clamp(1.5em, 7cqi, 2.75em);
+      font-family: "inter", sans-serif;
+      font-weight: 600;
+      color: #cfde3e;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      margin-top: 0.25em;
+      text-align: center;
+      font-size: clamp(14px, 1.125cqi, 1.125em);
+      font-style: italic;
+      font-weight: 300;
+      font-family: "inter", sans-serif;
+      color: #c9c9c9;
+    }
+
+    .form {
+      padding-block: 20px;
+      border-radius: 10px;
+      width: clamp(340px, 65vw, 680px);
+
+      .form-group {
+        margin-bottom: 20px;
+
+        label {
+          color: #fff;
+          font-weight: 500;
+          font-size: clamp(1em, 1.75cqi, 1.125em);
+          font-family: "inter", sans-serif;
+          padding: 4px;
+        }
+
+        textarea,
+        .form-input:not(.button-container) {
+          padding: 10px;
+          border-radius: 1px;
+          border: 1px solid #000000;
+          width: 100%;
+          background-color: #ffffff;
+          color: #000000;
+          font-family: "Inter", sans-serif;
+          font-weight: 400;
+          font-size: 1.05em;
+          margin-top: calc(max(4px, 0.5cqi));
+          resize: none;
+
+          &#bio {
+            height: clamp(40px, 10cqb, 100px);
+            font-size: 0.9em;
+          }
+          &#imageFile {
+            font-size: 0.7em;
+          }
+          &:focus-visible {
+            outline: 2px solid #f6418e;
+          }
+        }
+      }
+
+      .button-container {
+        margin-top: calc(max(1.5em, 5cqi));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .submit-button {
+          width: 100%;
+          border: 1px solid #ffffff;
+          padding: 12px 22px;
+          border-radius: 1px;
+          background-color: #000000;
+          color: #ffffff;
+          font-weight: 400;
+          font-size: 1em;
+          font-family: "Arial", sans-serif;
+          letter-spacing: 1.6px;
+          cursor: pointer;
+          text-transform: uppercase;
+          transition: all 250ms ease-in-out;
+
+          &:hover {
+            transition: all 150ms ease-in-out;
+            border: 1.5px solid #000000;
+            background: #cfde3e;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+}
+
+//mobile styles
+@media (max-width: 768px) {
+}
